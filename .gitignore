@@ -1,0 +1,56 @@
+# Azure credentials and secrets
+setup_azure_sql.sh
+setup_log.txt
+*.log
+
+# Database connection strings
+*.connection
+*.connectionstring
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Azure CLI credentials
+.azure/
+
+# SQL Server credentials
+*.sql.user
+*.sql.password
+
+# Backup files
+*.bak
+*.backup
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (if any)
+node_modules/
+
+# Python (if any)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

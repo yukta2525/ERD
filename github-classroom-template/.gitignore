@@ -1,0 +1,26 @@
+# Database credentials - NEVER commit these!
+.env
+*password*
+*connection*
+*.config
+credentials.json
+
+# VS Code settings that might contain sensitive info
+.vscode/settings.json
+
+# Large result files
+results/*.csv
+results/*.xlsx
+!results/README.md
+!results/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Temporary files
+*.tmp
+*.bak
+temp/

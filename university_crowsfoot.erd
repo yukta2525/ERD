@@ -55,3 +55,7 @@ relationship CourseDepartment {
 relationship InstructorDepartment {
     Instructor[0..N | "instructor"] -> Department[1 | "department"]
 }
+
+relationship EnrollmentCourse {
+    Enrollment[0..N | "enrollment"] -> Course[1 | "course"]
+}

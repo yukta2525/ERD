@@ -1,0 +1,71 @@
+erdiagram UniversityDeployed
+notation=crowsfoot
+
+// Core Entities
+
+entity Department {
+    department_id: VARCHAR(10) key
+    name: VARCHAR(100)
+    location: VARCHAR(100)
+}
+
+entity Instructor {
+    instructor_id: BIGINT key
+    name: VARCHAR(100)
+    email: VARCHAR(100)
+    department_id: VARCHAR(10)
+    created_at: DATETIME2
+    updated_at: DATETIME2
+}
+
+entity Student {
+    student_id: BIGINT key
+    name: VARCHAR(100)
+    email: VARCHAR(100)
+    major: VARCHAR(50)
+    year: INTEGER
+    created_at: DATETIME2
+    updated_at: DATETIME2
+}
+
+entity Course {
+    course_id: VARCHAR(10) key
+    title: VARCHAR(200)
+    credits: INTEGER
+    department_id: VARCHAR(10)
+    instructor_id: BIGINT
+    created_at: DATETIME2
+    updated_at: DATETIME2
+}
+
+entity Enrollment {
+    enrollment_id: BIGINT key
+    student_id: BIGINT
+    course_id: VARCHAR(10)
+    grade: VARCHAR(2)
+    semester: VARCHAR(20)
+    created_at: DATETIME2
+    updated_at: DATETIME2
+}
+
+// Relationships
+
+relationship InstructorBelongsToDepartment {
+    Instructor[0..N | "instructor"] -> Department[1 | "department"]
+}
+
+relationship CourseBelongsToDepartment {
+    Course[0..N | "course"] -> Department[1 | "department"]
+}
+
+relationship CourseTaughtByInstructor {
+    Course[0..N | "course"] -> Instructor[1 | "instructor"]
+}
+
+relationship StudentEnrollsInCourse {
+    Student[1 | "student"] -> Enrollment[0..N | "enrollment"]
+}
+
+relationship EnrollmentForCourse {
+    Enrollment[0..N | "enrollment"] -> Course[1 | "course"]
+}
